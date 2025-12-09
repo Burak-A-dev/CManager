@@ -1,9 +1,11 @@
 ﻿
 
 
+using CManager.Presentation.ConsoleApp.Interface;
+
 namespace CManager.Presentation.ConsoleApp.Models;
 
-internal class CustomerModel
+public class CustomerModel
 {
     public int ID { get; set; }
     public string FirstName { get; set; } = string.Empty;
