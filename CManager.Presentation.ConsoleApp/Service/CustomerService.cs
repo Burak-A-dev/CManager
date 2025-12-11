@@ -10,7 +10,10 @@ internal class CustomerService : ICustomerService
 {
     public void Create(CustomerModel customer)
     {
-        throw new NotImplementedException();
+        var Customer = new CustomerModel
+        {
+            Id = CustomerModel.Create()
+        };
     }
 
     public void DeleteById(string id)
