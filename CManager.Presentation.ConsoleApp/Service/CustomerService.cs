@@ -10,10 +10,7 @@ internal class CustomerService : ICustomerService
 {
     public void Create(CustomerModel customer)
     {
-        var Customer = new CustomerModel
-        {
-            Id = CustomerModel.Create()
-        };
+        var NewCustomer = CustomerModel.Create(customer);
     }
 
     public void DeleteById(string id)

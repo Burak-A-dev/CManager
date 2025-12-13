@@ -15,4 +15,28 @@ public class CustomerModel
     public string PostalCode { get; set; } = string.Empty;
     public string Town { get; set; } = string.Empty;
 
+
+    public static CustomerModel Create(CustomerModel customer)
+    {
+        var NewCustomer = new CustomerModel
+        {
+            Id = customer.Id,
+            FirstName = customer.FirstName,
+            LastName = customer.LastName,
+            Email = customer.Email,
+            Phone = customer.Phone,
+            Address = customer.Address,
+            PostalCode= customer.PostalCode,
+            Town = customer.Town
+        };
+        return new CustomerModel();
+    }
+
+    public static CustomerModel GetAll(CustomerModel customerList)
+    {
+        var CustomerList = new List<CustomerModel> [];
+        {   
+        };
+        return new CustomerModel();
+    }
 }
