@@ -1,23 +1,22 @@
 ﻿using CManager.Presentation.ConsoleApp.Models;
+using System.Collections.Generic;
 
 namespace CManager.Presentation.ConsoleApp.Interface;
 
 public interface ICustomerService
 {
-    // Skapa en ny kund med GUID som unikt ID.
-    void Create(CustomerModel customer);
-    // void Create(CustomerModel customer);
+    // Skapa en ny kund med unikt GUID (finns i CustomerModel)
+    void Create(Customer customer);
 
     // Hämta alla kunder
-    IEnumerable<CustomerModel> GetAll();
+    IEnumerable<Customer> GetAll();
 
     // Hämta specifik kund
-    CustomerModel GetById(string id);
-
+    Customer? GetById(string id);
 
     // Ta bort specifik kund
     void DeleteById(string id);
 
     // Updatera kund om det skulle behövas senare
-    // void Update(CustomerModel customer);
+    // void Update(Customer customer);
 }

@@ -1,7 +1,4 @@
 ﻿
-
-
-
 namespace CManager.Presentation.ConsoleApp.Models;
 
 public class Customer
