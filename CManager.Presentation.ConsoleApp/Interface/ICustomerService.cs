@@ -1,6 +1,4 @@
 ﻿using CManager.Presentation.ConsoleApp.Models;
-using System.Collections.Generic;
-
 namespace CManager.Presentation.ConsoleApp.Interface;
 
 public interface ICustomerService

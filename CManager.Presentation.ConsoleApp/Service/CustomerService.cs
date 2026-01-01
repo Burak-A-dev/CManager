@@ -1,16 +1,12 @@
 ﻿using CManager.Presentation.ConsoleApp.Interface;
 using CManager.Presentation.ConsoleApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace CManager.Presentation.ConsoleApp.Services;
 
 public class CustomerService : ICustomerService
 {
     private static List<Customer> customers = new();
 
-    public void Create(Customer customer)
+    public void Create(Customer customer) 
     {
         customers.Add(customer);
         Console.WriteLine($"Kunden {customer.FirstName} {customer.LastName} har lagts till.");
