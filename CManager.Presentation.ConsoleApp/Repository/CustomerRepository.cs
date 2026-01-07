@@ -11,11 +11,22 @@ internal class CustomerRepository : ICustomerRepository
     {
         string serializedList = JsonSerializer.Serialize(customers);
 
-        File.WriteAllText(filePath, serializedList);
+        string toJson = serializedList;
+
+        File.WriteAllText(filePath, toJson);
     }
 
     public List<Customer> GetCustomersFromFile()
     {
-        throw new NotImplementedException();
+        string fromFile = File.ReadAllText(filePath);
+
+        // Copilot föreslog denna ändring från det tidigare 'List<Customer> deSerializedFile = JsonSerializer.Deserialize(fromFile);
+        // Det jag förstår från detta är att koden inte vet vad Json filen ska Deserialiseras till om '<List<Customer>>' inte finns med.
+        // Kort sagt så behövs en typ som den vill konvertera till, detta skiljer från Serialize vilket inte behöver någon typ.
+        List<Customer> deSerializedFile = JsonSerializer.Deserialize<List<Customer>>(fromFile);
+
+        // behöver lägga till en if sats för att se om filen är tom eller inte.
+
+        return deSerializedFile;
     }
 }
