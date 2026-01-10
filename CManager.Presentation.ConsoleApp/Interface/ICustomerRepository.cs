@@ -10,5 +10,4 @@ internal interface ICustomerRepository
 
     // Hämta kunder från fil och lägga dem i en lista.
     List<Customer> GetCustomersFromFile();
-
 }

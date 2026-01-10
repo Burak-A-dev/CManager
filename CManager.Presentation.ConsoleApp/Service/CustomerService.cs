@@ -1,39 +1,48 @@
 ﻿using CManager.Presentation.ConsoleApp.Interface;
 using CManager.Presentation.ConsoleApp.Models;
+using CManager.Presentation.ConsoleApp.Repository;
 namespace CManager.Presentation.ConsoleApp.Services;
 
 public class CustomerService : ICustomerService
 {
-    private static List<Customer> customers = new();
+    private readonly ICustomerRepository _customerRepository;
 
-    public void Create(Customer customer) 
+    public CustomerService(ICustomerRepository repository)
     {
+        _customerRepository = repository;
+    }
+
+    public void Create(Customer customer)
+    {
+        var customers = _customerRepository.GetCustomersFromFile();
+
         customers.Add(customer);
-        Console.WriteLine($"Kunden {customer.FirstName} {customer.LastName} har lagts till.");
+
+        _customerRepository.SaveCustomersToJsonFile(customers);
     }
 
     public IEnumerable<Customer> GetAll()
     {
+        var customers = _customerRepository.GetCustomersFromFile();
+
         return customers;
     }
 
     public Customer? GetById(string id)
     {
+        var customers = _customerRepository.GetCustomersFromFile();
+
         return customers.FirstOrDefault(customer => customer.Id == id);
     }
 
     public void DeleteById(string id)
     {
-        var customer = GetById(id);
+        var customers = _customerRepository.GetCustomersFromFile();
 
-        if (customer == null)
-        {
-            Console.WriteLine($"Kunden med ID {id} finns inte.");
-        }
-        else
-        {
-            customers.Remove(customer);
-            Console.WriteLine($"Kunden med ID {id} har tagits bort.");
-        }
+        var customer =  customers.FirstOrDefault(customer => customer.Id == id);
+
+         customers.Remove(customer);
+
+        _customerRepository.SaveCustomersToJsonFile(customers);
     }
 }
