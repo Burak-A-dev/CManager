@@ -112,15 +112,24 @@ internal class CustomerController
             {
                 Console.WriteLine("*** Delete Customer With E-mail ***");
 
-                var customers = _customerService.GetAll();
 
                 Console.WriteLine("Enter E-mail:");
                 string? email = Console.ReadLine();
 
-                var customerEmail = customers.FirstOrDefault(customer => customer.Email == email);
 
-                var customerId = customers.FirstOrDefault(customers => customers.Id == id);
+                var customers = _customerService.GetAll();
 
+                var customer = customers.FirstOrDefault(customer => customer.Email == email);
+
+                if (customer != null)
+                {
+                    _customerService.DeleteById(customer.Id);
+                    Console.WriteLine($"Customer with Email, {customer.Email} been deleted.");
+                }
+                else
+                {
+                    Console.WriteLine($"No customer found with the email {customer.Email}");
+                }
             }
             ;
 
