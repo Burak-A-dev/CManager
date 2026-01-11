@@ -43,10 +43,24 @@ public class CustomerService : ICustomerService
     {
         var customers = _customerRepository.GetCustomersFromFile();
 
-        var customer =  customers.FirstOrDefault(customer => customer.Id == id);
+        Customer? customerToRemove = null;
 
-         customers.Remove(customer);
+        foreach (var customer in customers)
+        {
+            if (customer.Id == id)
+            {
+                customerToRemove = customer;
+                break;
+            }
+        }
 
+        if (customerToRemove == null)
+        {
+            return;
+        }
+
+        customers.Remove(customerToRemove);
         _customerRepository.SaveCustomersToJsonFile(customers);
     }
+
 }

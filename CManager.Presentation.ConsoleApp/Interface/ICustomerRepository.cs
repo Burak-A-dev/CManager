@@ -2,7 +2,7 @@
 
 namespace CManager.Presentation.ConsoleApp.Interface;
 
-internal interface ICustomerRepository
+public interface ICustomerRepository
 {
     // Spara en lista av kunder till en JSON-fil.
     void SaveCustomersToJsonFile(List<Customer> customers);
