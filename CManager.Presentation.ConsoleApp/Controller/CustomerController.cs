@@ -1,6 +1,5 @@
 ﻿using CManager.Presentation.ConsoleApp.Interface;
 using CManager.Presentation.ConsoleApp.Models;
-using System.Collections.Generic;
 
 namespace CManager.Presentation.ConsoleApp.Controller;
 
@@ -120,19 +119,3 @@ internal class CustomerController
         Console.ReadKey();
     }
 }
-
-/*
- 
-    Controller krav (konsol applikation)
-
-    Visa meny som loopas hela tiden.
-
-    Skapa kund: dialog med förnamn, efternamn, e-post, telefon, adress (gata, postnr, ort).
-
-    Visa kunder: lista fullständigt namn + e-post.
-    
-    Visa specifik kund: visa all information.
-    
-    Ta bort kund via e-post. 
-
- */
