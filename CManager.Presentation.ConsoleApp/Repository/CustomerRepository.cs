@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace CManager.Presentation.ConsoleApp.Repository;
 
-internal class CustomerRepository : ICustomerRepository
+public class CustomerRepository : ICustomerRepository
 {
     public void SaveCustomersToJsonFile(List<Customer> customers)
     {
