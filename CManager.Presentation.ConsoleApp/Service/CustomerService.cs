@@ -16,6 +16,10 @@ public class CustomerService : ICustomerService
     {
         var customers = _customerRepository.GetCustomersFromFile();
 
+        var customerGuid = Guid.NewGuid().ToString();
+
+        customer.Id = customerGuid;
+
         customers.Add(customer);
 
         _customerRepository.SaveCustomersToJsonFile(customers);

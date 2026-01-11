@@ -112,7 +112,17 @@ internal class CustomerController
             {
                 Console.WriteLine("*** Delete Customer With E-mail ***");
 
-            };
+                var customers = _customerService.GetAll();
+
+                Console.WriteLine("Enter E-mail:");
+                string? email = Console.ReadLine();
+
+                var customerEmail = customers.FirstOrDefault(customer => customer.Email == email);
+
+                var customerId = customers.FirstOrDefault(customers => customers.Id == id);
+
+            }
+            ;
 
         }
 
